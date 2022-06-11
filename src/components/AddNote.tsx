@@ -4,7 +4,7 @@ import { AddNoteProps } from "../interfaces";
 
 const AddNote: React.FC<AddNoteProps> = ({handleAddNote, id}:AddNoteProps) => {
 
-  const text = `This is predetermined data/text: 
+  const DEFAULT_TEXT = `This is predetermined data/text (delete this): 
   * empty row above
   *italic*,
   **bold**,
@@ -13,7 +13,7 @@ const AddNote: React.FC<AddNoteProps> = ({handleAddNote, id}:AddNoteProps) => {
   [x] done,
   `
 
-  const [noteText, setNoteText] = useState(text); 
+  const [noteText, setNoteText] = useState(DEFAULT_TEXT); 
 
   const CHAR_LIMIT = 200
 
@@ -26,7 +26,7 @@ const AddNote: React.FC<AddNoteProps> = ({handleAddNote, id}:AddNoteProps) => {
   const handleSaveClick = () => {
     if(noteText.trim().length > 0) {
         handleAddNote(noteText, id)
-        setNoteText(text)
+        setNoteText(noteText)
     }
   }
 
