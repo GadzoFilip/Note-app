@@ -1,11 +1,17 @@
 import React from "react";
 import { MdDeleteForever } from "react-icons/md";
-import {IoCreateSharp} from 'react-icons/io5'
+import { IoCreateSharp } from "react-icons/io5";
 import { NoteProps } from "../interfaces";
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const Note: React.FC<NoteProps> = ({ id, text, date, handleDeleteNote, handleEditNote }: NoteProps) => {
+const Note: React.FC<NoteProps> = ({
+  id,
+  text,
+  date,
+  handleDeleteNote,
+  handleEditNote,
+}: NoteProps) => {
   return (
     <div
       key={id}
@@ -16,8 +22,16 @@ const Note: React.FC<NoteProps> = ({ id, text, date, handleDeleteNote, handleEdi
       <div className="flex items-center justify-between">
         <small>{date}</small>
         <div className="flex">
-          <IoCreateSharp size="1.3rem" className="mr-2 hover:cursor-pointer" onClick={() => handleEditNote ? handleEditNote(id) : null}/>
-          <MdDeleteForever size="1.3rem" className="hover:cursor-pointer" onClick={() => handleDeleteNote ? handleDeleteNote(id) : null}/>
+          <IoCreateSharp
+            size="1.3rem"
+            className="mr-2 hover:cursor-pointer"
+            onClick={() => (handleEditNote ? handleEditNote(id) : null)}
+          />
+          <MdDeleteForever
+            size="1.3rem"
+            className="hover:cursor-pointer"
+            onClick={() => (handleDeleteNote ? handleDeleteNote(id) : null)}
+          />
         </div>
       </div>
     </div>
